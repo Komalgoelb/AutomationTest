@@ -7,7 +7,6 @@ describe('Google Search Engine', () => {
       cy.visit('https://www.google.com/');
       // verify the title
       cy.title().should('eq', 'Google')
-      cy.log();
     });
   
     it('it should display the Google logo', () => {
