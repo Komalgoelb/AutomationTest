@@ -1,7 +1,7 @@
 // describe is a test suite in which each it has testcase
 describe('Google Search Engine', () => {
     beforeEach(() => {
-      
+
     
       // Visit Google homepage before each test
       cy.visit('https://www.google.com/');
