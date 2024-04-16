@@ -7,7 +7,8 @@ describe('Google Search Engine', () => {
       cy.visit('https://www.google.com/');
       // verify the title
       cy.title().should('eq', 'Google')
-    });
+      cy.wait(10000);
+    
   
     it('it should display the Google logo', () => {
       // Assert that Google logo is visible
@@ -36,3 +37,4 @@ describe('Google Search Engine', () => {
     
       });
   });
+});
