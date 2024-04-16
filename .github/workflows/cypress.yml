@@ -26,8 +26,9 @@ jobs:
 
 
 
-      - name: Run Cypress tests
-        run: npx cypress run
+     
+      - run: npx cypress run
+        
 
 
       - name: Notify on success
@@ -37,3 +38,4 @@ jobs:
       - name: Notify on failure
         if: failure()
         run: echo "Some tests failed! See the logs for details."
+        
