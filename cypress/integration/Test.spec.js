@@ -8,7 +8,7 @@ describe('Google Search Engine', () => {
       cy.wait(3000);
     });
   
-    it('it should display the Google logo', () => {
+    it.only('it should display the Google logo', () => {
       // Assert that Google logo is visible
       cy.get('img[alt="Google"]').should('be.visible');
     });
