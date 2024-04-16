@@ -1,0 +1,44 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+
+      - name: Run Cypress tests
+        run: npm run cypress:run
+
+      - name: Check test results
+        if: ${{ failure() }}
+        run: exit 1  # Fail the job if any tests fail
+
+      - name: Notify on success
+        if: ${{ success() }}
+        run: echo "All tests passed successfully!"
+
+      - name: Notify on failure
+        if: ${{ failure() }}
+        run: echo "Some tests failed! See the logs for details."
