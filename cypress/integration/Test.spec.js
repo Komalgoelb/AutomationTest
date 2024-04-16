@@ -28,7 +28,8 @@ describe('Google Search Engine', () => {
       // Assert that the URL has changed to the About page
       cy.url().should('include', '/about');
     });
-    it('should be able to perform a basic search', () => {
+
+      it('should be able to perform a basic search', () => {
         // Type "computer" on the search bar and click enter
         cy.get('#APjFqb').type('computer'+ '{enter}')
         cy.wait(2000);
