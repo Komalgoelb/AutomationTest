@@ -27,13 +27,5 @@ jobs:
       - name: run all testcases
         run: npx cypress run
         
-      -  name: Notify on success
-         if: success()
-        run: echo "All tests passed successfully!"
-
-      - name: Notify on failure
-        if:  failure()
-        run: echo "Some tests failed! See the logs for details."
-      
 
      
