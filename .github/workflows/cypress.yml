@@ -29,10 +29,6 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run
 
-      - name: Check test results
-        if: ${{ failure() }}
-        run: exit 1  # Fail the job if any tests fail
-
 
       - name: Notify on success
         if: ${{ success() }}
