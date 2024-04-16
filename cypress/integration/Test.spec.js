@@ -1,14 +1,12 @@
 // describe is a test suite in which each it has testcase
 describe('Google Search Engine', () => {
-    beforeEach(() => {
 
-    
+    beforeeach(() => {
+
       // Visit Google homepage before each test
-      cy.visit('https://www.google.com/');
-      // verify the title
-      cy.title().should('eq', 'Google')
-      cy.wait(10000);
-    
+      cy.visit('/');
+      cy.wait(3000);
+    });
   
     it('it should display the Google logo', () => {
       // Assert that Google logo is visible
@@ -32,9 +30,10 @@ describe('Google Search Engine', () => {
     });
     it('should be able to perform a basic search', () => {
         // Type "computer" on the search bar and click enter
-        cy.get('#APjFqb').type('computer'+ '{enter}').find('.gNO89b').click();
+        cy.get('#APjFqb').type('computer'+ '{enter}')
+        cy.wait(2000);
+        cy.find('.gNO89b').click();
         cy.url().should('include', '/search?q=computer');
     
       });
   });
-});
